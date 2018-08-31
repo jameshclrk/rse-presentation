@@ -1,0 +1,68 @@
+body {
+    background-image: url(./images/bottom.png);
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+}
+
+.reveal img {
+    height: 100%;
+    height: -moz-available;          /* WebKit-based browsers will ignore this. */
+    height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+    height: fill-available;
+    max-height:60vh;
+}
+
+.reveal video {
+    padding-top: 10px;
+}
+
+.input_prompt {
+    display: contents;
+}
+
+.controls {
+    right: unset !important;
+    left: 100px !important;
+}
+
+.logos {
+    width: 100%;
+}
+
+.logos img {
+    height:unset;
+    width: 45ex;
+    margin: 0 auto 50px auto !important;
+}
+
+.rendered_html {
+    max-height: 80vh;
+}
+
+.centre {
+    margin: auto !important;
+}
+
+.left {
+  left:-8.33%;
+  text-align: left;
+  float: left;
+  width:50%;
+  z-index:-10;
+}
+
+.right {
+  left:31.25%;
+  top: 75px;
+  float: right;
+  text-align: right;
+  z-index:-10;
+  width:50%;
+  height: 40vh;
+}
+
+.vcentre {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
