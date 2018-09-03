@@ -11938,8 +11938,8 @@ STFC Hartree Centre</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Quantum-Annealing">Quantum Annealing<a class="anchor-link" href="#Quantum-Annealing">&#182;</a></h1><ul>
 <li><strong>Not</strong> equivalent to universal gate based quantum computing</li>
-<li>Encodes a solution in a Hamiltonian (energy)</li>
-<li>Takes an initial Hamiltonian and <em>slowly</em> evolves it the final solution (via adiabatic theorem)</li>
+<li>Takes an initial Hamiltonian and <em>slowly</em> evolves it (via adiabatic theorem)</li>
+<li>Encodes a solution the ground state of the final Hamiltonian</li>
 <li>Only "stoquastic hamiltonians" (ground state can be described as classical probability)</li>
 </ul>
 
@@ -12003,7 +12003,7 @@ STFC Hartree Centre</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>What can we do with this?</p>
 <ul>
-<li>Optimiser, for example: $\min \left(f(\mathbf{x}) = \mathbf{x}^T Q \mathbf{x}\right)$</li>
+<li>Optimiser, for example: $\min \left(f(\mathbf{x}) = \mathbf{x}^T Q \mathbf{x}\right)$ (QUBO)</li>
 <li>Machine learning</li>
 <li>Materials simulation</li>
 </ul>
@@ -12018,11 +12018,12 @@ STFC Hartree Centre</p>
 <h2 id="Optimising-Example---&quot;pick-one&quot;">Optimising Example - <em>"pick one"</em><a class="anchor-link" href="#Optimising-Example---&quot;pick-one&quot;">&#182;</a></h2><p>\begin{equation}
 f(\mathbf{x}) = \left(\sum_{i=0}^{N} x_i - 1\right)^2
 \end{equation}</p>
-<p>Multiplies to give...</p>
+<p>Which gives...</p>
 <p>\begin{equation}
 f(\mathbf{x}) = -x_0 -x_1 \dots -x_N + 2x_0x_1 + \dots + 2x_Nx_{N-1} +1
 \end{equation}</p>
 <p>Linear terms are the diagonal of $Q$, quadratic are off-diagonal</p>
+<p><em>D-Wave library requires it's stored in the upper triangle</em></p>
 
 </div>
 </div>
@@ -12189,9 +12190,10 @@ f(\mathbf{x}) = -x_0 -x_1 \dots -x_N + 2x_0x_1 + \dots + 2x_Nx_{N-1} +1
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Assumptions">Assumptions<a class="anchor-link" href="#Assumptions">&#182;</a></h1><ul>
+<h1 id="Assumptions">Project Rules<a class="anchor-link" href="#Assumptions">&#182;</a></h1><ul>
 <li>Project is assessing feasibility </li>
-<li>No accelerations</li>
+<li>What would an application look like?</li>
+<li>Robots don't accelerate</li>
 <li>All robots are identical</li>
 <li>No faults or performance degradation</li>
 </ul>
@@ -12214,7 +12216,7 @@ Generalisation of VW/D-Wave traffic problem</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Workflow">Workflow<a class="anchor-link" href="#Workflow">&#182;</a></h1><ul>
-<li>Classical route generation (single robot)</li>
+<li>Classical route generation (only considering a single robot)</li>
 <li>Quantum optimiser</li>
 <li>Classical validation</li>
 </ul>
@@ -12315,7 +12317,7 @@ Generalisation of VW/D-Wave traffic problem</p>
 </div>
 <div class="right">
     <ul class="vcentre">
-        <li>Retry with more robots on failed routes</li>
+        <li>Retry with more routes for failed robots</li>
         <li>Fix robots that were OK</li>
         <li>Collisions are gone</li>
         <li>Cheaper than rerunning whole problem</li>
